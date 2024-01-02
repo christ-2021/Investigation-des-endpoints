@@ -58,14 +58,8 @@ Configure "Collection:"
      - Output Format: CSV and JSON
      - Pause for Prompt: Check
      - Filename Format: (I usually clear "Collection" for brevity)
--  Collection Type: **AWS Bucket** (See "AWS Collection Upload Configuration" NOTES below)
-   -  S3 Bucket: your-triage-upload-bucket-name (no "/")
-   -  Credentials Key: copy/paste your AWS IAM Access Key here (remove any trailing space!)
-   -  Credentials Secret: copy/paste your AWS IAM Secret Key here (remove any trailing space!)
-   -  Region: us-east-1 (edit according to your desired region)
-   -  File Name Prefix: your-case-specific-folder-name/ (include trailing "/")
-   -  Output Format: CSV and JSON
-   -  Pause for Prompt: Check
+     -  Output Format: CSV and JSON
+     -  Pause for Prompt: Check
 -  Launch/Download Collector:
    -  Click "Server.Utils.CreateCollector, Uploaded Files," then click "Collector_velociraptor-vn.n.n-windows-amd64.exe"
    -  If you receive browser warnings, "keep" and download
@@ -77,7 +71,6 @@ NOTE: I highly recommend you test your offline collector prior to deployment!
 
 Copy the offline collector executable to the system/s you are investigating. If you chose "ZIP" collection type, a ZIP file and log file will be created in the directory where the collector is saved. At completion, "Press the Enter Key to end."
 
-If you chose "AWS Bucket" collector, a log file will be created in the directory where the collector is saved and a ZIP file will be uploaded to your Bucket and saved in the diretory where the collector was saved/executed. "Press the Enter Key to end."
 
 **IMPORTANT:** Run the collector as ADMINISTRATOR 
 
@@ -86,7 +79,7 @@ If you chose "AWS Bucket" collector, a log file will be created in the directory
 ## Using KAPE and Invoke-KAPE to Parse Offline Triage Collection
 Stage your ZIP file/s and edit the Kape_Rapid_Triage_Excel_Rev2.ps1 script to match your drive and folder structure:
 
-I use an EC2 Windows 2022 instance, creating an OS Volume (C: - 120 GB) and a Case/Data Volume (D: - 1 to 2 TB, mostly for IOPs but also to accommodate numerous collections).
+I use a Windows 10 os , creating an OS Volume (C: - 120 GB) and a Case/Data Volume (D: - 1 to 2 TB,  to accommodate numerous collections).
 I'll then create a "case folder," eg D:\cases\2023-11-1-abc, with a "triage_data" subdirectory, and copy one or more ZIP files into that subdirectory. 
 You can manually unzip the ZIP files, if there are only one or two, or you can use the "expand-archive-triage-data-rev3.ps1" script (requires PoSh 7.x) to unzip all ZIP files in your "triage_data" folder, automatically creating unique subfolders for each ZIP-file output. 
 
