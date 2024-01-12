@@ -39,7 +39,6 @@ Expand Context {find attack extents}
 Contain {from attack extents}
 
 
-NOTE: See the "Incident Response Capabilities Matrix Model" for more details - https://securecake.com/f/incident-response-capabilities-matrix-model---preamble?blogcategory=IRCMM
 
 ----------------
 
